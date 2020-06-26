@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
     encrypt = "true"
-    bucket  = "scripts-terraform-backend"
+    bucket  = " "           # Your bucket
     region  = "us-east-1"
-    key     = "terraform/lambda/lambda.tfstate"
+    key     = "terraform.tfstate"   # Your bucket key
   }
 }
