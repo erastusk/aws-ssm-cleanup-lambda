@@ -6,10 +6,9 @@ A Python script that deletes AWS Parameter Store parameters.
 A need for this lambda came about due to "orphaned" parameters used for managing Codepipeline stages accumulating. Not all pipelines have a clean up stage and those
 that do, parameter deletes after a pipeline execution aren't reliable. The end result is orphaned parameters.
 
-Deployment is performed using Terraform
 
-
-## USAGE
+## METHODS OF DEPLOYMENT
+### Teraform
 
 ```
 cd function
@@ -17,8 +16,20 @@ bash build_and_deploy_lambda.sh
 
 ```
 
-## build_and_deploy_lambda.sh
+build_and_deploy_lambda.sh
 ** zips up your python modules and performs a terraform plan/apply
+
+
+### Severless
+
+```
+npm install -g serverless
+serverless create -t aws-python
+cd lambda-serverless
+serverless deploy
+```
+
+### SAM
 
 NOTE : `Make sure you have appropriate AWS cicd credentials in your environment`.
 
