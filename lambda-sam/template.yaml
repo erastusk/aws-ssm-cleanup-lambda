@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lambda-sam
+
+  Sample SAM Template for lambda-sam
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Resources:
+  LambdaParamDeleteFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: function/
+      Handler: lambda.lambda_handler
+      Runtime: python3.7
+      FunctionName: param_delete_lambda_sam
+      Description: This lambda function retrieves ssm pipeline parameters for deletion
+      MemorySize: 512
+      Timeout: 15
+      Role: < Provide a Role arn to use, otherwise one is created>
+      Events:
+        LambdaEvent:
+          Type: Schedule # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Schedule: cron(0 7 * * ? *)  # Everyday 7am UTC
+            Name: param-delete-lambda-cw-event-sam-deployed
+            Description: This lambda function retrieves ssm pipeline parameters for deletion
+            Enabled: True
+      Tags:
+        Owner: Developers
+        Dept: IT
+        Deployment: AWS-SAM
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  LambdaParamDeleteFunction:
+    Description: "Lambda Function ARN"
+    Value: !GetAtt LambdaParamDeleteFunction.Arn

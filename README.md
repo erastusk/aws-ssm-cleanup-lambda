@@ -31,6 +31,8 @@ serverless deploy
 
 ### SAM
 
+
+
 NOTE : `Make sure you have appropriate AWS cicd credentials in your environment`.
 
 
