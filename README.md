@@ -32,23 +32,6 @@ serverless deploy
 ### SAM
 ```
 pip3 install aws-sam-cli
-sam init --runtime python3.8 --name lambda-sam --dependency-manager pip
-
-Which template source would you like to use?
-        1 - AWS Quick Start Templates
-        2 - Custom Template Location
-Choice: 1
-
-Cloning app templates from https://github.com/awslabs/aws-sam-cli-app-templates.git
-
-AWS quick start application templates:
-        1 - Hello World Example
-        2 - EventBridge Hello World
-        3 - EventBridge App from scratch (100+ Event Schemas)
-        4 - Step Functions Sample App (Stock Trader)
-        5 - Elastic File System Sample App
-Template selection: 1
-
 cd lambda-sam
 sam deploy --guided
 
