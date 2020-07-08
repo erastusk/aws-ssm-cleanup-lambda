@@ -50,20 +50,6 @@ AWS quick start application templates:
 Template selection: 1
 
 cd lambda-sam
-
-
-
-
-NOTE : `Make sure you have appropriate AWS cicd credentials in your environment`.
-
-
-## STANDALONE EXECUTION
-
-If you wanted to run this function locally without deploying to AWS:
-
-```
-cd function
-python3 lambda.py
 sam deploy --guided
 
   Setting default arguments for 'sam deploy'
@@ -88,6 +74,15 @@ Key                 LambdaParamDeleteFunction
 Description         Lambda Function ARN
 Value               arn:aws:lambda:us-east-1:191141428331:function:param-delete-lambda
 ```
+
+## STANDALONE EXECUTION
+
+If you wanted to run this function locally without deploying to AWS:
+
+```
+cd function
+python3 lambda.py
+
 
 ## OPTIONS
 
