@@ -82,7 +82,7 @@ If you wanted to run this function locally without deploying to AWS:
 ```
 cd function
 python3 lambda.py
-
+```
 
 ## OPTIONS
 
